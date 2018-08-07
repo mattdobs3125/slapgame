@@ -29,6 +29,7 @@ function encounterStart() {
   title.innerText = dinoOne.title;
   level.innerText = dinoOne.level;
   health.innerText = dinoOne.health.toString();
+  levelInput();
 
   if (dinoOne.health === 0) {
     punch.disabled = true;
@@ -59,11 +60,11 @@ function groundSmash() {
 }
 
 function levelInput() {
-  if (dinoOne.health === 100) dinoOne.level = "base"
-  if (dinoOne.health === 70) dinoOne.level = "moderately hurt";
-  if (dinoOne.health === 50) dinoOne.level = "maimed";
-  if (dinoOne.health === 30) dinoOne.level = "almost dead";
-  if (dinoOne.health === 0) dinoOne.level = " dead";
+  if (dinoOne.health <=100) dinoOne.level = "base"
+  if (dinoOne.health <= 70) dinoOne.level = "moderately hurt";
+  if (dinoOne.health <= 50) dinoOne.level = "maimed";
+  if (dinoOne.health <= 30) dinoOne.level = "almost dead";
+  if (dinoOne.health <= 0) dinoOne.level = " dead";
   encounterStart();
 }
 

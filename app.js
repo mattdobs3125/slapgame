@@ -29,7 +29,7 @@ function encounterStart() {
   title.innerText = dinoOne.title;
   level.innerText = dinoOne.level;
   health.innerText = dinoOne.health.toString();
-  levelInput();
+  
 
   if (dinoOne.health === 0) {
     punch.disabled = true;

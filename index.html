@@ -14,14 +14,14 @@
 
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid" style="background-color: black;" >
         <div class="row" style="background-color: black;">
             <div class="col-md-12" id="attack-interface">
                 <img src="newDino.jpeg" id='encounter-img'alt="trex"style="width: 100%;"/>
             </div>
         </div>
         <div class="row" style="background-color: black;">
-            <div class="col-md-6">
+            <div class="col-xs-6">
                 <h4 style="background-color: rgb(7, 71, 21);color: ghostwhite;">Title:
                     <span style="color: red;"id="title"></span>
                 </h4>
@@ -32,11 +32,20 @@
                     <span id="level" style="color: red;"></span>
                 </h4>
             </div>
-            <div class="colo-md-6"  >
+            <div class="colo-xs-6">
                 <button class="btn btn-primary" onclick="punch()"id="puch-button" style="color: red;background-color: gray">Dino Punch</button>
                 <button class "btn btn-primary" id="kick-button" onclick="kick()" style="color: red;background-color: gray" >Spin Kick</button>
                 <button class "btn btn-primary" id="sheild-button" onclick="groundSmash()" style="color: red;background-color: gray" >GroundSmash</button>
                 <button class "btn btn-primary" onclick="reset()"  id="reset" style="color:red;background-color:gray;" >RESET</button>
+            </div>
+        </div>
+        <div class="row" style="background-color: black;">
+            <div class="col-md-12">
+                    <button class "btn btn-primary" onclick="ironGlove()"  id="glove" style="color:turquoise;background-color:gray;" >Iron glove </button>
+                    
+                    <button class "btn btn-primary" onclick="potion()" style="color:turquoise;background-color:gray;" >Strength potion</button>
+                    <button class "btn btn-primary" onclick="electrify()" style="color:turquoise;background-color:gray;" >Electrify your hits</button>
+
             </div>
         </div>
     </div>

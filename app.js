@@ -5,14 +5,36 @@ const groundSmashs = document.getElementById("sheild-button");
 const healh = document.getElementById("health");
 const armorStatus = document.getElementById("status");
 const encounterImg = document.getElementById("encounter-img");
+const ironGloves = document.getElementById("iron-glove")
 var dinoOne = {
   levels: ["base", "moderatlely hurt", "Enraged", "Dead"],
   levelImages: ["trex.jpg"],
   title: "tRex",
   health: 100,
   armorStatus: 140,
-  level: "base"
+  level: "base",
+  items:[],
 };
+
+let items = {
+  ironGlove:{
+    name :"glove",
+    modifier: .4,
+    description: "look a cool glove"
+  },
+  strengthPotion:{
+    name : "strength",
+    modifier: 1,
+    description: "strength pot"
+  },
+  electricity:{
+    name :"Electricity",
+    modifier: 3,
+    description:"electrify your hits"
+
+  }
+}
+
 const dinoTwo = {
   levels: ["base", "moderatlely hurt", "Enraged", "Dead"],
   levelImages: [],
@@ -29,27 +51,47 @@ function encounterStart() {
   title.innerText = dinoOne.title;
   level.innerText = dinoOne.level;
   health.innerText = dinoOne.health.toString();
-  
-
-  if (dinoOne.health === 0) {
+  if (dinoOne.health == 0) {
     punch.disabled = true;
     kick.disabled = true;
     block.disabled = true;
   }
+ 
+  
+
+}
+// fuction 
+function addHandMods(){
+  let total = 1
+  dinoOne.items.forEach(item => {
+    total+= item.modifier
+  });
+  return total;
 }
 function punch() {
-  dinoOne.health--;
+  dinoOne.health -= 1 * addHandMods();
   levelInput();
   encounterStart();
 }
+function electrify(){
+  dinoOne.items.push(items.electricity)
+}
+function ironGlove (){
+ dinoOne.items.push(items.ironGlove)
+}
+function potion(){
+  dinoOne.items.push(items.strengthPotion)
+}
+
 
 function reset() {
   dinoOne.health = dinoHReset;
+  dinoOne.items = []
   levelInput()
   encounterStart();
 }
 function kick() {
-  dinoOne.health = dinoOne.health - sKick;
+ dinoOne.health -= sKick * addHandMods();
   levelInput();
   encounterStart();
 }
